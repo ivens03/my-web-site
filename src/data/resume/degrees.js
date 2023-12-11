@@ -1,15 +1,15 @@
 const degrees = [
   {
-    school: 'Stanford University',
-    degree: 'M.S. Computational and Mathematical Engineering',
-    link: 'https://stanford.edu',
-    year: 2016,
+    school: 'Unifametro',
+    degree: 'Ciências da computação',
+    link: 'https://unifametro.edu.br/',
+    year: '2021 - 2022 Interrompido',
   },
   {
-    school: 'University at Buffalo',
-    degree: 'B.S. Electrical Engineering, Computer Engineering',
-    link: 'https://buffalo.edu',
-    year: 2012,
+    school: 'Unifametro',
+    degree: 'Analise e desenvolvimento de sistemas',
+    link: 'https://unifametro.edu.br/',
+    year: '2023 - 2025 Previsão de termino',
   },
 ];
 

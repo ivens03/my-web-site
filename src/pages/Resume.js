@@ -14,34 +14,60 @@ import degrees from '../data/resume/degrees';
 import work from '../data/resume/work';
 import { skills, categories } from '../data/resume/skills';
 
-// NOTE: sections are displayed in order defined.
+// Mapeamento de títulos para português, incluindo a seção de línguas
+const sectionTitles = {
+  Education: 'Educação',
+  Experience: 'Experiência',
+  Skills: 'Habilidades',
+  Courses: 'Cursos',
+  References: 'Contate-me',
+  Languages: 'Línguas',
+};
+
+// Dados das línguas
+const languagesData = [
+  { name: 'Inglês', level: 'B2 – Intermediário Avançado' },
+  { name: 'Espanhol', level: 'B2 – Intermediário Avançado' },
+];
+
+// Objeto sections permanece o mesmo
 const sections = {
   Education: () => <Education data={degrees} />,
   Experience: () => <Experience data={work} />,
   Skills: () => <Skills skills={skills} categories={categories} />,
   Courses: () => <Courses data={courses} />,
   References: () => <References />,
+  Languages: () => (
+    <section id="languages">
+      <h3>{sectionTitles.Languages}</h3>
+      <ul>
+        {languagesData.map((language) => (
+          <li key={`${language.name}-${language.level}`}>{language.name}: {language.level}</li>
+        ))}
+      </ul>
+    </section>
+  ),
 };
 
 const Resume = () => (
-  <Main
-    title="Resume"
-    description="Michael D'Angelo's Resume. Smile Identity, Arthena, Matroid, YC, Skeptical Investments, Stanford ICME, Planet, and Facebook."
-  >
+  <Main>
     <article className="post" id="resume">
       <header>
         <div className="title">
-          <h2><Link to="resume">Resume</Link></h2>
+          <h2><Link to="/resume">Currículo</Link></h2>
           <div className="link-container">
-            {Object.keys(sections).map((sec) => (
-              <h4 key={sec}>
-                <a href={`#${sec.toLowerCase()}`}>{sec}</a>
-              </h4>))}
+            {Object.keys(sections).map((section) => (
+              <h4 key={section}>
+                <a href={`#${section.toLowerCase()}`}>{sectionTitles[section]}</a>
+              </h4>
+            ))}
           </div>
         </div>
       </header>
-      {Object.entries(sections).map(([name, Section]) => (
-        <Section key={name} />
+      {Object.entries(sections).map(([section, Component]) => (
+        <section id={section.toLowerCase()} key={section}>
+          <Component />
+        </section>
       ))}
     </article>
   </Main>
