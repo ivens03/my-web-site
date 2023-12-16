@@ -1,11 +1,9 @@
 {
   "name": "personal-site",
   "version": "4.0.0",
-  "homepage": "https://ivens03.github.io/ivens-site",
   "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "git@github.com:ivens03/Meu-Web-Site.git"
+    "type": "git"
   },
   "engines": {
     "node": ">=16.x"
